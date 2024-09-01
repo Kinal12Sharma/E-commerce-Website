@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kay-Jewelry Store - Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: rgb(70, 33, 130);
+            color: rgb(211, 173, 213);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .main {
+            font-size: 50px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: rgb(126, 2, 2);
+            font-size: 1.07rem;
+        }
+        .content {
+            padding: 20px;
+        }
+        .profile-form, .profile-display {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .profile-form input, .profile-form select, .profile-form textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .profile-form button {
+            padding: 10px 15px;
+            background-color: rgb(16, 52, 131);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .profile-form button:hover {
+            background-color: #555;
+        }
+        .profile-display {
+            position: relative;
+        }
+        .profile-display button.remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .profile-display button.remove-btn:hover {
+            background-color: #692725;
+        }
+        .profile-checkbox {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .add-account-btn {
+            display: none;
+            padding: 10px 15px;
+            background-color: rgb(58, 34, 190);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 1em;
+        }
+        .add-account-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="main"><b><i>KAY-Jewelry Store</i></b></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <section class="content">
+        <h2>Your Profile</h2>
+        <div id="form-container" class="profile-form">
+            <h3>Create/Edit Profile</h3>
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="contact" placeholder="Contact Number" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <select id="gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="text" id="city" placeholder="City" required>
+            <button onclick="saveProfile()">Save</button>
+        </div>
+        <div id="profiles-container"></div>
+        <button id="add-another-btn" class="add-account-btn" onclick="showForm()">Add Another Account</button>
+    </section>
+    <script>
+        let profileCount = 0;
+        let selectedProfileIndex = null;
+
+        window.onload = function() {
+            loadProfiles();
+        };
+
+        function saveProfile() {
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const address = document.getElementById('address').value;
+            const email = document.getElementById('email').value;
+            const gender = document.getElementById('gender').value;
+            const city = document.getElementById('city').value;
+
+            if (!name || name.length < 10) {
+                showError('Name must be at least 10 characters long.');
+                return;
+            }
+            if (!validateEmail(email)) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+            if (!contact || !address || !email || !gender || !city) {
+                showError('All fields are required.');
+                return;
+            }
+
+            let profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+            profiles.push({ name, contact, address, email, gender, city });
+            localStorage.setItem('profiles', JSON.stringify(profiles));
+
+            displayProfile(profiles.length - 1);
+            profileCount++;
+            if (profileCount > 0) {
+                document.getElementById('add-another-btn').style.display = 'block';
+            }
+
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('name').value = '';
+            document.getElementById('contact').value = '';
+            document.getElementById('address').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('gender').value = '';
+            document.getElementById('city').value = '';
+        }
+
+        function loadProfiles() {
+            let profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+            profiles.forEach((profile, index) => {
+                displayProfile(index);
+            });
+
+            profileCount = profiles.length;
+            if (profileCount > 0) {
+                document.getElementById('add-another-btn').style.display = 'block';
+            }
+        }
+
+        function displayProfile(index) {
+            const profilesContainer = document.getElementById('profiles-container');
+            const profileDiv = document.createElement('div');
+            profileDiv.className = 'profile-display';
+            const profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+            const profile = profiles[index];
+
+            profileDiv.innerHTML = `
+                <input type="checkbox" class="profile-checkbox" id="profile-${index}" ${index === 0 ? 'checked' : ''} onclick="selectOnlyThis(${index})">
+                <button class="remove-btn" onclick="removeProfile(${index})">Remove</button>
+                <p><strong>Name:</strong> ${profile.name}</p>
+                <p><strong>Contact:</strong> ${profile.contact}</p>
+                <p><strong>Address:</strong> ${profile.address}</p>
+                <p><strong>Email:</strong> ${profile.email}</p>
+                <p><strong>Gender:</strong> ${profile.gender}</p>
+                <p><strong>City:</strong> ${profile.city}</p>
+            `;
+
+            profilesContainer.appendChild(profileDiv);
+        }
+
+        function selectOnlyThis(index) {
+            const checkboxes = document.querySelectorAll('.profile-checkbox');
+            checkboxes.forEach((checkbox, idx) => {
+                checkbox.checked = (idx === index);
+            });
+            selectedProfileIndex = index;
+        }
+
+        function removeProfile(index) {
+            let profiles = JSON.parse(localStorage.getItem('profiles')) || [];
+            profiles.splice(index, 1);
+            localStorage.setItem('profiles', JSON.stringify(profiles));
+
+            document.getElementById('profiles-container').innerHTML = '';
+            profiles.forEach((_, idx) => {
+                displayProfile(idx);
+            });
+
+            profileCount--;
+            if (profileCount === 0) {
+                document.getElementById('add-another-btn').style.display = 'none';
+            }
+        }
+
+        function showForm() {
+            document.getElementById('form-container').style.display = 'block';
+            document.getElementById('add-another-btn').style.display = 'none';
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.textContent = message;
+            errorDiv.style.position = 'fixed';
+            errorDiv.style.bottom = '10px';
+            errorDiv.style.left = '50%';
+            errorDiv.style.transform = 'translateX(-50%)';
+            errorDiv.style.backgroundColor = '#d9534f';
+            errorDiv.style.color = 'white';
+            errorDiv.style.padding = '10px';
+            errorDiv.style.borderRadius = '5px';
+            document.body.appendChild(errorDiv);
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

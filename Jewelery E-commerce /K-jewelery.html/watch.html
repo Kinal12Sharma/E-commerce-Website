@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Store - Watches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('https://static.wixstatic.com/media/703d70_3ebc9c66c7be4d35b365d445f7675df5~mv2.jpg/v1/fill/w_250,h_250,fp_0.50_0.50,q_30,blur_30,enc_auto/703d70_3ebc9c66c7be4d35b365d445f7675df5~mv2.webp');
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgb(70, 33, 130);
+            color: rgb(211, 173, 213);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="main"><b><i>KAY-Jewelry Store</i></b></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="https://static.helioswatchstore.com/media/catalog/product/cache/73917c428e6b89ce8adc8b035e7d9334/f/b/fb521bkgb-frcjk_1.jpg.jpg" alt="Watch 1">
+            <h3>FitBit Digital Watch</h3>
+            <p>Rs. 21,249</p>
+            <button onclick="addToCart('FitBit Digital Watch', 21249, 'https://static.helioswatchstore.com/media/catalog/product/cache/73917c428e6b89ce8adc8b035e7d9334/f/b/fb521bkgb-frcjk_1.jpg.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://imageio.forbes.com/specials-images/imageserve/633a34b93d5cfebfe993dbad/Chopard-Alpine-Eagle-33/960x0.jpg?format=jpg&width=960" alt="Watch 2">
+            <h3>Chopard Luxury Watch</h3>
+            <p>Rs. 26,000</p>
+            <button onclick="addToCart('Chopard Luxury Watch', 26000, 'https://imageio.forbes.com/specials-images/imageserve/633a34b93d5cfebfe993dbad/Chopard-Alpine-Eagle-33/960x0.jpg?format=jpg&width=960')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://www.armani.com/variants/images/1647597299174757/D/w400.jpg" alt="Watch 3">
+            <h3>Diamond Studed Luxury Analog Watch</h3>
+            <p>Rs. 24,000</p>
+            <button onclick="addToCart('Diamond Studed Luxury Analog Watch', 1300, 'https://www.armani.com/variants/images/1647597299174757/D/w400.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/8e/57/95/8e5795bb52aab96bcb617f0724da5e7f.jpg" alt="Watch 4">
+            <h3>GUOU Luxury Watch With Bracelet</h3>
+            <p>Rs. 13,459</p>
+            <button onclick="addToCart('GUOU Luxury Watch With Bracelet', 13459, 'https://i.pinimg.com/736x/8e/57/95/8e5795bb52aab96bcb617f0724da5e7f.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71BCNpJ3mnL._AC_UY900_.jpg" alt="Watch 5">
+            <h3>Civo Luxury Classic Watch</h3>
+            <p>Rs. 25,879</p>
+            <button onclick="addToCart('Civo Luxury Classic Watch', 25879, 'https://m.media-amazon.com/images/I/71BCNpJ3mnL._AC_UY900_.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2023/5/309673883/UV/QH/NE/76036349/product-jpeg-500x500.jpg" alt="Watch 6">
+            <h3>Rolex Diamond Studed Luxury Watch</h3>
+            <p>Rs. 39,000</p>
+            <button onclick="addToCart('Rolex Diamond Studed Luxury Watch', 39000, 'https://5.imimg.com/data5/ANDROID/Default/2023/5/309673883/UV/QH/NE/76036349/product-jpeg-500x500.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.etsystatic.com/34504379/r/il/cc2f2f/4125402809/il_570xN.4125402809_9bh4.jpg" alt="Watch 7">
+            <h3>Eglisse Classy Black Watch</h3>
+            <p>Rs. 24,000</p>
+            <button onclick="addToCart('Eglisse Classy Black Watch', 24000, 'https://i.etsystatic.com/34504379/r/il/cc2f2f/4125402809/il_570xN.4125402809_9bh4.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://4.imimg.com/data4/RM/GX/ANDROID-36086933/product.jpeg" alt="Watch 8">
+            <h3>Geneve Luxury Watch</h3>
+            <p>Rs. 31,670</p>
+            <button onclick="addToCart('Geneve Luxury Watch', 31670, 'https://4.imimg.com/data4/RM/GX/ANDROID-36086933/product.jpeg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/originals/f6/bf/cb/f6bfcbeee67b67e1a164c13bf8bb8b2b.jpg" alt="Watch 9">
+            <h3>Rolex Analog Watch</h3>
+            <p>Rs. 45,000</p>
+            <button onclick="addToCart('Rolex Analog Watch', 45000, 'https://i.pinimg.com/originals/f6/bf/cb/f6bfcbeee67b67e1a164c13bf8bb8b2b.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/ff/d4/75/ffd475d4c620fb0fc5734a7e97d7503d.jpg" alt="Watch 10">
+            <h3>Rolex Oyster Perpetual Luxury Watch</h3>
+            <p>Rs. 50,789</p>
+            <button onclick="addToCart('Rolex Oyster Perpetual Luxury Watch', 50789, 'https://i.pinimg.com/736x/ff/d4/75/ffd475d4c620fb0fc5734a7e97d7503d.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61lf5MRN40L._AC_UY350_.jpg" alt="Watch 11">
+            <h3>SK Black Classy Watch</h3>
+            <p>Rs. 11,000</p>
+            <button onclick="addToCart('SK Black Classy Watch', 11000, 'https://m.media-amazon.com/images/I/61lf5MRN40L._AC_UY350_.jpg')">Add to Cart</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Jewelry Store</p>
+    </footer>
+
+    <script>
+        function addToCart(name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            localStorage.setItem('cartProducts', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+    </script>
+</body>
+
+</html>
+

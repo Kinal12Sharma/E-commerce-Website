@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kay-Jewelry Store - Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: rgb(70, 33, 130);
+            color: rgb(211, 173, 213);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .main {
+            font-size: 50px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: rgb(126, 2, 2);
+            font-size: 1.07rem;
+        }
+        .content {
+            padding: 20px;
+        }
+        .settings-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .settings-container h2 {
+            margin-top: 0;
+        }
+        .notification-settings label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .notification-settings input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .notification-settings button, .logout-button {
+            padding: 10px 15px;
+            background-color: rgb(16, 52, 131);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .notification-settings button:hover, .logout-button:hover {
+            background-color: #555;
+        }
+        .thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .thank-you-popup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="main"><b><i>KAY-Jewelry Store</i></b></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+    <section class="content">
+        <div class="settings-container">
+            <h2>Notification Settings</h2>
+            <div class="notification-settings">
+                <label>
+                    <input type="checkbox" id="email-notifications">
+                    Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" id="sms-notifications">
+                    SMS Notifications
+                </label>
+                <label>
+                    <input type="checkbox" id="push-notifications">
+                    Push Notifications
+                </label>
+                <button onclick="saveNotificationSettings()">Save Settings</button>
+            </div>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </section>
+    <div id="thank-you-popup" class="thank-you-popup">
+        <img src="https://thumbs.dreamstime.com/b/basic-rgb-237509167.jpg" alt="Thank You">
+    </div>
+    <script>
+        window.onload = function() {
+            loadNotificationSettings();
+        };
+
+        function loadNotificationSettings() {
+            const emailNotifications = localStorage.getItem('emailNotifications') === 'true';
+            const smsNotifications = localStorage.getItem('smsNotifications') === 'true';
+            const pushNotifications = localStorage.getItem('pushNotifications') === 'true';
+
+            document.getElementById('email-notifications').checked = emailNotifications;
+            document.getElementById('sms-notifications').checked = smsNotifications;
+            document.getElementById('push-notifications').checked = pushNotifications;
+        }
+
+        function saveNotificationSettings() {
+            const emailNotifications = document.getElementById('email-notifications').checked;
+            const smsNotifications = document.getElementById('sms-notifications').checked;
+            const pushNotifications = document.getElementById('push-notifications').checked;
+
+            localStorage.setItem('emailNotifications', emailNotifications);
+            localStorage.setItem('smsNotifications', smsNotifications);
+            localStorage.setItem('pushNotifications', pushNotifications);
+
+            alert('Notification settings saved!');
+        }
+
+        function logout() {
+            // Show thank you message
+            document.getElementById('thank-you-popup').style.display = 'flex';
+            // Hide the thank you message after 10 seconds and redirect to login page
+            setTimeout(() => {
+                document.getElementById('thank-you-popup').style.display = 'none';
+                window.location.href = 'login.html';
+            }, 10000);
+        }
+    </script>
+</body>
+</html>
