@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Store - Pendants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/premium-photo/abstract-cream-color-background-wallpaper-with-random-patterns-waves-curves_989263-7144.jpg');
+            background-size: cover;
+        }
+        header {
+            background-color: rgb(70, 33, 130);
+            color: rgb(211, 173, 213);
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="main"><b><i>KAY-Jewelry Store</i></b></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw07d036c9/images/hi-res/503120PDUAAA09_1.jpg?sw=640&sh=640" alt="Pendant 1">
+            <h3>Gold Circle Pendant </h3>
+            <p>Rs. 10,000</p>
+            <button onclick="addToCart('Gold Circle Pendant', 10000, 'https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw07d036c9/images/hi-res/503120PDUAAA09_1.jpg?sw=640&sh=640')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://kinclimg8.bluestone.com/f_jpg,c_scale,w_1024,b_rgb:f0f0f0/giproduct/BISP0353P25-POSTER-19106.jpg" alt="Pendant 2">
+            <h3>Beautiful Design Gold Pendant</h3>
+            <p>Rs. 20,000</p>
+            <button onclick="addToCart('Beautiful Design Gold Pendant', 20000, 'https://kinclimg8.bluestone.com/f_jpg,c_scale,w_1024,b_rgb:f0f0f0/giproduct/BISP0353P25-POSTER-19106.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/92/81/24/928124885acc27745b071d78dc6a61d8.jpg" alt="Pendant 3">
+            <h3>2 Layer Silver Diamond Pendant</h3>
+            <p>Rs. 7,000</p>
+            <button onclick="addToCart('2 Layer Silver Diamond Pendant', 7000, 'https://i.pinimg.com/736x/92/81/24/928124885acc27745b071d78dc6a61d8.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://image.made-in-china.com/202f0j00cmYiylNPkVbW/Limited-Time-Discount-Fashion-OEM-Diamond-Jewelry-Simple-Design-18K-Sterling-Gold-Diamond-Necklace-for-Women-Gift.webp" alt="Pendant 4">
+            <h3>Stunning 1 Diamond Pendant</h3>
+            <p>Rs. 9,999</p>
+            <button onclick="addToCart('Stunning 1 Diamond Pendant', 9999, 'https://image.made-in-china.com/202f0j00cmYiylNPkVbW/Limited-Time-Discount-Fashion-OEM-Diamond-Jewelry-Simple-Design-18K-Sterling-Gold-Diamond-Necklace-for-Women-Gift.webp')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://www.thejewelbox.in/cdn/shop/files/SquareGreenEmeraldPendantSilverChainNecklace-TheJewelbox-1.jpg?v=1710220567&width=900" alt="Pendant 5">
+            <h3>Stunning Green Square Diamond Pendant </h3>
+            <p>Rs. 10,000</p>
+            <button onclick="addToCart('Stunning Green Square Diamond Pendant', 10000, 'https://www.thejewelbox.in/cdn/shop/files/SquareGreenEmeraldPendantSilverChainNecklace-TheJewelbox-1.jpg?v=1710220567&width=900')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://ornatejewels.com/cdn/shop/products/OJP0128CZ.jpg?v=1704224066&width=900" alt="Pendant 6">
+            <h3>Silver Square Diamond Pendant</h3>
+            <p>Rs. 12,000</p>
+            <button onclick="addToCart('Silver Square Diamond Pendant', 12000, 'https://ornatejewels.com/cdn/shop/products/OJP0128CZ.jpg?v=1704224066&width=900')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://cdn1.jolicloset.com/img4/detail4b/2023/06/896812-1/necklaces-other-stories.jpg" alt="Pendant 7">
+            <h3>Silver 1 Diamond Pendant</h3>
+            <p>Rs. 11,000</p>
+            <button onclick="addToCart('Silver 1 Diamond Pendant', 11000, 'https://cdn1.jolicloset.com/img4/detail4b/2023/06/896812-1/necklaces-other-stories.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i5.walmartimages.com/seo/mnjin-diamond-necklace-woman-beating-dazzling-heart-shaped-diamond-pendant-small-diamond-pendant-woman-white_6c203431-ece2-4b6d-bc85-1ad1e1aed592.6975e0fdea28dc66c1ebaeb8778dcdcd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Pendant 8">
+            <h3>Silver Loop Design Pendant</h3>
+            <p>Rs. 8,000</p>
+            <button onclick="addToCart('Silver Loop Design Pendant', 8000, 'https://i5.walmartimages.com/seo/mnjin-diamond-necklace-woman-beating-dazzling-heart-shaped-diamond-pendant-small-diamond-pendant-woman-white_6c203431-ece2-4b6d-bc85-1ad1e1aed592.6975e0fdea28dc66c1ebaeb8778dcdcd.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://d25g9z9s77rn4i.cloudfront.net/uploads/product/997/1661506481_071c6466d5c13bbab25c.jpg" alt="Pendant 9">
+            <h3>Drop Design Gold and Diamond Pendant</h3>
+            <p>Rs. 18,500</p>
+            <button onclick="addToCart('Drop Design Gold and Diamond Pendant', 18500, 'https://d25g9z9s77rn4i.cloudfront.net/uploads/product/997/1661506481_071c6466d5c13bbab25c.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://cdn-images.gehnaindia.com/products/website_picture1s/000/010/899/original/GHDIPEAJ-4142-new.jpg?1646045305" alt="Pendant 10">
+            <h3>Divine Gold and Diamond Pendant</h3>
+            <p>Rs. 12,000</p>
+            <button onclick="addToCart('Divine Gold and Diamond Pendant', 12000, 'https://cdn-images.gehnaindia.com/products/website_picture1s/000/010/899/original/GHDIPEAJ-4142-new.jpg?1646045305')">Add to Cart</button>
+        </div>
+    </section>
+
+    <script>
+        function addToCart(name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            localStorage.setItem('cartProducts', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+    </script>
+    
+</body>
+
+</html>

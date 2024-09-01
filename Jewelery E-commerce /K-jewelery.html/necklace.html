@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Store - Necklaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: antiquewhite;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgb(70, 33, 130);
+            color: rgb(211, 173, 213);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        .product h3 {
+            font-size: 25px;
+            color: rgb(23, 46, 136);
+        }
+
+        .product h5 {
+            color: rgb(59, 59, 59);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="main"><b><i>KAY-Jewelry Store</i></b></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="https://www.wamanharipethesons.com/portalrepository/images/productsku/WHPS288755_0_r.jpg" alt="Necklace 1">
+            <h3>Gold Choker Necklaces</h3>
+            <h5>This exquisite gold choker hugs the neck with a delicate and refined touch. Perfect for adding a sophisticated edge to any traditional outfit.</h5>
+            <p>Rs. 2.1 Lakh</p>
+            <button onclick="addToCart('Gold Choker Necklace', 210000, 'https://www.wamanharipethesons.com/portalrepository/images/productsku/WHPS288755_0_r.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://d25g9z9s77rn4i.cloudfront.net/uploads/product/194/1659167350_69eaf909b5f89865fa02.jpg" alt="Necklace 2">
+            <h3>Royal Choker Gold Necklace</h3>
+            <h5>Embrace regal elegance with this royal gold choker necklace. Its opulent design and luxurious finish make it a statement piece for any sophisticated ensemble.</h5>
+            <p>Rs. 1.2 Lakh</p>
+            <button onclick="addToCart('Royal Choker Gold Necklace', 120000, 'https://d25g9z9s77rn4i.cloudfront.net/uploads/product/194/1659167350_69eaf909b5f89865fa02.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/ce/b9/aa/ceb9aae249684a59d861721343e738db.jpg" alt="Necklace 3">
+            <h3>Bridal Gold Necklace</h3>
+            <h5>This gold choker necklace features an intricate design with detailed embellishments, offering a blend of classic charm and modern elegance.</h5>
+            <p>Rs. 1.85 Lakh</p>
+            <button onclick="addToCart('Bridal Gold Necklace', 185000, 'https://i.pinimg.com/736x/ce/b9/aa/ceb9aae249684a59d861721343e738db.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/dc/28/e7/dc28e714efb733407d4d187426818518.jpg" alt="Necklace 4">
+            <h3>Gold Necklace with Elegant Design</h3>
+            <h5>A stunning V-neck gold necklace that gracefully drapes along the collarbone. Its elegant design enhances both casual and formal looks.</h5>
+            <p>Rs. 1.75 Lakh</p>
+            <button onclick="addToCart('Gold Necklace with Elegant Design', 175000, 'https://i.pinimg.com/736x/dc/28/e7/dc28e714efb733407d4d187426818518.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://artofgold.in/wp-content/uploads/2022/02/N-Gj-481-495x400.jpg" alt="Necklace 5">
+            <h3>Light Weight Gold Necklace</h3>
+            <h5>This lightweight gold necklace combines simplicity with elegance, making it perfect for everyday wear. Its delicate design adds a touch of sophistication without overwhelming.</h5>
+            <p>Rs. 1.4 Lakh</p>
+            <button onclick="addToCart('Light Weight Gold Necklace', 140000, 'https://artofgold.in/wp-content/uploads/2022/02/N-Gj-481-495x400.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://manubhai.in/SocialMedia/post_artworks/Ashtamala-13-25August2022.jpg" alt="Necklace 6">
+            <h3>Elegant Gold Necklace with Traditional Design</h3>
+            <h5>This gold necklace features a traditional design with intricate detailing and a graceful, classic style. Ideal for adding a touch of heritage elegance to any occasion.</h5>
+            <p>Rs. 1.97 Lakh</p>
+            <button onclick="addToCart('Elegant Gold Necklace with Traditional Design', 197000, 'https://manubhai.in/SocialMedia/post_artworks/Ashtamala-13-25August2022.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/74/af/e5/74afe5491f7fc1943531f082bc79cdb1.jpg" alt="Necklace 7">
+            <h3>Stunning Gold Statement Necklace</h3>
+            <h5>This bold gold statement necklace showcases a striking geometric design with intricate detailing. Its eye-catching style adds a touch of glamour to traditional outfits.</h5>
+            <p>Rs. 3 Lakh</p>
+            <button onclick="addToCart('Stunning Gold Statement Necklace', 300000, 'https://i.pinimg.com/736x/74/af/e5/74afe5491f7fc1943531f082bc79cdb1.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/0d/c2/1a/0dc21ab9296424f45043c57b63b2e4a8.jpg" alt="Necklace 8">
+            <h3>21 Stone Gold Necklace</h3>
+            <h5>This exquisite gold necklace features 21 sparkling stones set in a refined design. Its dazzling arrangement adds a touch of elegance and sophistication to any ensemble.</h5>
+            <p>Rs. 1.99 Lakh</p>
+            <button onclick="addToCart('21 Stone Gold Necklace', 199000, 'https://i.pinimg.com/736x/0d/c2/1a/0dc21ab9296424f45043c57b63b2e4a8.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/236x/b0/13/d3/b013d32b7beb106232843b4471231f12.jpg" alt="Necklace 9">
+            <h3>Lightweight Gold and Diamond Choker Necklace</h3>
+            <h5>This delicate choker combines gold and diamonds in a lightweight design, offering a touch of luxury and elegance. Its subtle sparkle adds a refined sophistication to any look.</h5>
+            <p>Rs. 1.77 Lakh</p>
+            <button onclick="addToCart('Lightweight Gold and Diamond Choker Necklace', 177000, 'https://i.pinimg.com/236x/b0/13/d3/b013d32b7beb106232843b4471231f12.jpg')">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://www.kushals.com/cdn/shop/files/temple-necklace-ruby-gold-silver-temple-necklace-161397-36926302945436.jpg?v=1701689315" alt="Necklace 10">
+            <h3>Traditional Gold Necklace with Minor Designs</h3>
+            <h5>This traditional gold necklace showcases intricate craftsmanship with subtle, detailed designs. Its classic elegance is complemented by the delicate embellishments, making it a timeless piece for any occasion.</h5>
+            <p>Rs. 2.34 Lakh</p>
+            <button onclick="addToCart('Traditional Gold Necklace with Minor Designs', 234000, 'https://www.kushals.com/cdn/shop/files/temple-necklace-ruby-gold-silver-temple-necklace-161397-36926302945436.jpg?v=1701689315')">Add to Cart</button>
+        </div>
+    </section>
+
+    <script>
+        function addToCart(name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cartProducts')) || [];
+            const existingProduct = cart.find(item => item.name === name);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            localStorage.setItem('cartProducts', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+    </script>
+    
+</body>
+
+</html>
